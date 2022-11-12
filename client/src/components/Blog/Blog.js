@@ -8,7 +8,7 @@ function Blog() {
   return (
     <>
       <Navbar />
-      <div className="instances">
+      <div className="instances" >
         <Card
           img={anxiety}
           title="What Anxiety Feels Like & Why It Happens"

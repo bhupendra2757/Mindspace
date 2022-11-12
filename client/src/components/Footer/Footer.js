@@ -1,10 +1,12 @@
 import React from 'react'
+import FooterContent from './FooterContent'
+
 import './footer.css'
 
 function Footer() {
     return (
         <footer>
-            <svg viewBox="0 0 120 29">å
+            <svg viewBox="0 0 120 25">
                 <defs>
                     <mask id="xxx">
                         <circle cx={7} cy={12} r={40} fill="#fff" />
@@ -29,7 +31,7 @@ function Footer() {
                     <use id="wave1" className="wave" xlinkHref="#wave" x={0} y={1} />
                 </g>
             </svg>
-            
+            <FooterContent/>
         </footer>
     )
 }
