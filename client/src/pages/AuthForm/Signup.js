@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -27,9 +26,8 @@ const App = () => {
 
     const {
         register,
-        control,
         handleSubmit,
-        formState: { errors, isSubmitting },
+        formState: { errors },
     } = useForm({
         resolver: yupResolver(validationSchema),
     });
