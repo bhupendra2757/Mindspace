@@ -1,6 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import {Box, Tab, Tabs} from '@mui/material';
+import {Box} from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -12,7 +12,6 @@ import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom'
 //logo
 import { ReactComponent as Logo } from "../../assets/logo.svg";
-import { Link } from 'react-router-dom';
 
 
 // const pages = [{name: 'AboutUs', id:'about'},'Services', 'Blog', 'Login', 'Signup'];
@@ -57,8 +56,6 @@ function Navbar() {
               component="a"
               href="/"
               sx={{
-                // mr: 12, 
-                // justifyContent:'end',
                 display: { xs: 'none', md: 'flex' },
                 fontFamily: 'monospace',
                 fontWeight: 700,
@@ -71,7 +68,6 @@ function Navbar() {
             </Typography>
           </Box>
 
-          {/* ///for small xs */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -101,10 +97,6 @@ function Navbar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              <Tabs>
-               <Tab sx={{color:"white"}}  label={'About Us'} key={'#about'} value={`#about`} component={Link} to ={`#about`}  >About Us</Tab> 
-              </Tabs>
-
                {pages.map((page) => (
                 <MenuItem key={page} onClick={() => navigate(`/${page}`)}>
                   <Typography textAlign="center">{page}</Typography>
@@ -130,9 +122,6 @@ function Navbar() {
           >   <Logo />
 
           </Typography>
-
-
-
           <Box justifyContent='end' sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -144,7 +133,6 @@ function Navbar() {
               </Button>
             ))}
           </Box>
-
         </Toolbar>
       </Container>
     </AppBar>
