@@ -7,7 +7,7 @@ import SideImg2 from '../../assets/mental_health_1.png'
 
 function Context() {
   return (
-    <Box sx={{ width: '100%', marginTop: '90px' }}>
+    <Box sx={{ width: '100%', marginTop: '90px' }} id='about'>
        <Typography align='center' sx={{ fontSize: '50px', color: '#42a5f5', }}>
                 About Us
               </Typography >

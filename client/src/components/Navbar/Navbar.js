@@ -1,6 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+import {Box, Tab, Tabs} from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -12,9 +12,11 @@ import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom'
 //logo
 import { ReactComponent as Logo } from "../../assets/logo.svg";
+import { Link } from 'react-router-dom';
 
 
-const pages = ['Services', 'Blog', 'Login', 'Signup'];
+// const pages = [{name: 'AboutUs', id:'about'},'Services', 'Blog', 'Login', 'Signup'];
+const pages = ['About us','What we do?', 'Blog', 'Login',];
 
 const appbarStyle = {
   height: '80px',
@@ -99,7 +101,11 @@ function Navbar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              <Tabs>
+               <Tab sx={{color:"white"}}  label={'About Us'} key={'#about'} value={`#about`} component={Link} to ={`#about`}  >About Us</Tab> 
+              </Tabs>
+
+               {pages.map((page) => (
                 <MenuItem key={page} onClick={() => navigate(`/${page}`)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>

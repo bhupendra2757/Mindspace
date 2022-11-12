@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -12,6 +13,8 @@ const App = () => {
     const validationSchema = Yup.object().shape({
         fullname: Yup.string().required('Fullname is required'),
         email: Yup.string().required('Email is required').email('Email is invalid'),
+        address: Yup.string().required('Address is required'),
+        contact: Yup.number().required('contact is required'),
         password: Yup.string()
             .required('Password is required')
             .min(6, 'Password must be at least 6 characters')
@@ -77,6 +80,36 @@ const App = () => {
                         <Grid item xs={12} sm={12}>
                             <TextField
                                 required
+                                id="address"
+                                name="address"
+                                label="Address"
+                                fullWidth
+                                margin="dense"
+                                {...register('address')}
+                                error={errors.address ? true : false}
+                            />
+                            <Typography variant="inherit" color="textSecondary">
+                                {errors.address?.message}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={12}>
+                            <TextField
+                                required
+                                id="contact"
+                                name="contact"
+                                label="Contact"
+                                fullWidth
+                                margin="dense"
+                                {...register('contact')}
+                                error={errors.contact ? true : false}
+                            />
+                            <Typography variant="inherit" color="textSecondary">
+                                {errors.contact?.message}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={12}>
+                            <TextField
+                                required
                                 id="password"
                                 name="password"
                                 label="Password"
@@ -108,15 +141,16 @@ const App = () => {
                         </Grid>
 
                     </Grid>
-
                     <Box mt={3} >
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            onClick={handleSubmit(onSubmit)}
-                            fullWidth >
-                            Register
-                        </Button>
+                        <a href="/">
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onClick={handleSubmit(onSubmit)}
+                                fullWidth >
+                                Register
+                            </Button>
+                        </a>
                     </Box>
                 </Box>
             </Paper>
